@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enerzee - Energia Solar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <section class="hero-central">
+    <h1>☀️ Energia solar sem dor de cabeça</h1>
+    <p>Ganhe até 40% de desconto na sua conta de luz<br />sem pagar pela instalação</p>
+    <a href="#formulario" class="btn">SIMULE AGORA</a>
+  </section>
+
+  <section class="planos">
+    <h2>Nossos Planos</h2>
+    <div class="plano-container">
+      <div class="plano-card destaque-comodato">
+        <h3>⚡ Ezee Solar – Comodato</h3>
+        <p class="desconto">💰 Até <strong>40% de economia</strong> na conta de luz</p>
+        <ul>
+          <li>✓ Instalação no seu telhado</li>
+          <li>✓ Sem custo inicial</li>
+          <li>✓ Até 6 meses de carência após a assinatura do contrato</li>
+          <li>✓ Você se torna dono da usina no final do contrato</li>
+          <li>✓ Manutenção completa inclusa</li>
+        </ul>
+      </div>
+      <div class="plano-card destaque-assinatura">
+        <h3>🌞 Ezee Connect – Assinatura</h3>
+        <p class="desconto">💡 Até <strong>25% de economia</strong> sem instalar nada</p>
+        <ul>
+          <li>✓ Sem instalação nem obras</li>
+          <li>✓ Ideal para apartamentos e locatários</li>
+          <li>✓ Energia limpa direto na sua fatura</li>
+          <li>✓ Prático, sem fidelidade</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="formulario" id="formulario">
+    <h2>Solicite sua Simulação</h2>
+    <form action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST">
+      <input type="text" name="nome" placeholder="Nome completo" required />
+      <input type="email" name="email" placeholder="E-mail" required />
+      <input type="tel" name="telefone" placeholder="Telefone com DDD" required />
+      <input type="text" name="cpf" placeholder="CPF" required />
+      <input type="text" name="renda" placeholder="Renda (opcional)" />
+      <input type="text" name="regiao" placeholder="Região" required />
+      <input type="text" name="media_conta" placeholder="Média da conta de luz (R$)" required />
+      <select name="tipo_imovel" required>
+        <option value="">Tipo de imóvel</option>
+        <option value="casa">Casa</option>
+        <option value="loja">Loja</option>
+        <option value="industria">Indústria</option>
+        <option value="condominio">Condomínio</option>
+      </select>
+      <textarea name="mensagem" rows="4" placeholder="Informações adicionais (opcional)"></textarea>
+      <button type="submit">Quero Economizar com Energia Solar</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Enerzee. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
