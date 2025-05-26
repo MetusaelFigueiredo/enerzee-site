@@ -4,12 +4,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enerzee - Simulação Solar</title>
+  <title>Enerzee - Energia Solar</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/5565996062659?text=Olá, tenho interesse em energia solar!"
+     class="whatsapp-float"
+     target="_blank"
+     aria-label="Converse conosco no WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
+
+  <!-- HERO -->
+  <section class="hero-central">
+    <h1>☀️ Energia solar sem dor de cabeça</h1>
+    <p>Ganhe até 40% de desconto na sua conta de luz<br />sem pagar pela instalação</p>
+    <a href="#formulario" class="btn">SIMULE AGORA</a>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="planos">
+    <h2>Nossos Planos</h2>
+    <div class="plano-container">
+      <div class="plano-card destaque-comodato">
+        <h3>⚡ Ezee Solar – Comodato</h3>
+        <p class="desconto">💰 Até <strong>40% de economia</strong> na conta de luz</p>
+        <ul>
+          <li>✓ Instalação no seu telhado</li>
+          <li>✓ Sem custo inicial</li>
+          <li>✓ Até 6 meses de carência</li>
+          <li>✓ Você se torna dono da usina no final</li>
+          <li>✓ Manutenção completa inclusa</li>
+        </ul>
+      </div>
+      <div class="plano-card destaque-assinatura">
+        <h3>🌞 Ezee Connect – Assinatura</h3>
+        <p class="desconto">💡 Até <strong>25% de economia</strong> sem instalar nada</p>
+        <ul>
+          <li>✓ Sem instalação nem obras</li>
+          <li>✓ Ideal para apartamentos e locatários</li>
+          <li>✓ Energia limpa direto na sua fatura</li>
+          <li>✓ Prático, sem fidelidade</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
     <form id="solarForm" action="https://formsubmit.co/seuemail@exemplo.com" method="POST" enctype="multipart/form-data" onsubmit="enviarParaWhatsapp(event)">
@@ -58,7 +102,6 @@
     }
 
     function enviarParaWhatsapp(event) {
-      const form = document.getElementById('solarForm');
       const nome = document.getElementById('nome').value;
       const cpf = document.getElementById('cpf').value;
       const tel = document.getElementById('telefone').value;
