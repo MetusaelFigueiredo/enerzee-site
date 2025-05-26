@@ -1,99 +1,84 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enerzee - Energia Solar</title>
+  <title>Enerzee - Simulação Solar</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Botão flutuante do WhatsApp -->
-  <a href="https://wa.me/5565996062659?text=Olá, tenho interesse em energia solar!"
-     class="whatsapp-float"
-     target="_blank"
-     aria-label="Converse conosco no WhatsApp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-  </a>
-
-  <!-- HERO -->
-  <section class="hero-central">
-    <h1>☀️ Energia solar sem dor de cabeça</h1>
-    <p>Ganhe até 40% de desconto na sua conta de luz<br />sem pagar pela instalação</p>
-    <a href="#formulario" class="btn">SIMULE AGORA</a>
-  </section>
-
-  <!-- PLANOS -->
-  <section class="planos">
-    <h2>Nossos Planos</h2>
-    <div class="plano-container">
-      <div class="plano-card destaque-comodato">
-        <h3>⚡ Ezee Solar – Comodato</h3>
-        <p class="desconto">💰 Até <strong>40% de economia</strong> na conta de luz</p>
-        <ul>
-          <li>✓ Instalação no seu telhado</li>
-          <li>✓ Sem custo inicial</li>
-          <li>✓ Até 6 meses de carência após a assinatura do contrato</li>
-          <li>✓ Você se torna dono da usina no final do contrato</li>
-          <li>✓ Manutenção completa inclusa</li>
-        </ul>
-      </div>
-      <div class="plano-card destaque-assinatura">
-        <h3>🌞 Ezee Connect – Assinatura</h3>
-        <p class="desconto">💡 Até <strong>25% de economia</strong> sem instalar nada</p>
-        <ul>
-          <li>✓ Sem instalação nem obras</li>
-          <li>✓ Ideal para apartamentos e locatários</li>
-          <li>✓ Energia limpa direto na sua fatura</li>
-          <li>✓ Prático, sem fidelidade</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULÁRIO SIMPLIFICADO COM WHATSAPP -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
-    <form onsubmit="enviarParaWhatsapp(event)">
-      <input type="text" id="nome" placeholder="Nome completo" required />
-      <input type="tel" id="telefone" placeholder="Telefone com DDD" required />
-      <input type="text" id="cidade" placeholder="Cidade" required />
-      <input type="text" id="media" placeholder="Média da conta de luz (R$)" required />
-      <select id="tipo" required>
+    <form id="solarForm" action="https://formsubmit.co/seuemail@exemplo.com" method="POST" enctype="multipart/form-data" onsubmit="enviarParaWhatsapp(event)">
+      <input type="text" name="nome" id="nome" placeholder="Nome completo" required />
+      <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
+      <input type="tel" name="telefone" id="telefone" placeholder="Telefone com DDD" required />
+      <input type="text" name="cep" id="cep" placeholder="CEP" required onblur="buscarCep()" />
+      <input type="text" name="rua" id="rua" placeholder="Rua" required />
+      <input type="text" name="bairro" id="bairro" placeholder="Bairro" required />
+      <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
+      <input type="text" name="estado" id="estado" placeholder="Estado" required />
+      <input type="text" name="media" id="media" placeholder="Média da conta de luz (R$)" required />
+      <select name="tipo" id="tipo" required>
         <option value="">Tipo de imóvel</option>
         <option value="casa">Casa</option>
         <option value="loja">Loja</option>
         <option value="industria">Indústria</option>
         <option value="condominio">Condomínio</option>
       </select>
-      <button type="submit">Quero Economizar com Energia Solar</button>
+      <label>📎 Anexe o talão de energia:</label>
+      <input type="file" name="talao" accept=".pdf,.jpg,.jpeg,.png" required />
+      <button type="submit">Enviar e Falar no WhatsApp</button>
+      <input type="hidden" name="_next" value="https://wa.me/5565996062659" />
     </form>
   </section>
 
-  <!-- RODAPÉ -->
   <footer>
     © 2025 Enerzee. Todos os direitos reservados.
   </footer>
 
-  <!-- Script de envio para WhatsApp -->
   <script>
+    function buscarCep() {
+      const cep = document.getElementById('cep').value.replace(/\D/g, '');
+      if (cep.length !== 8) return;
+
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(res => res.json())
+        .then(data => {
+          if (!data.erro) {
+            document.getElementById('rua').value = data.logradouro;
+            document.getElementById('bairro').value = data.bairro;
+            document.getElementById('cidade').value = data.localidade;
+            document.getElementById('estado').value = data.uf;
+          }
+        });
+    }
+
     function enviarParaWhatsapp(event) {
-      event.preventDefault();
+      const form = document.getElementById('solarForm');
       const nome = document.getElementById('nome').value;
+      const cpf = document.getElementById('cpf').value;
       const tel = document.getElementById('telefone').value;
+      const cep = document.getElementById('cep').value;
+      const rua = document.getElementById('rua').value;
+      const bairro = document.getElementById('bairro').value;
       const cidade = document.getElementById('cidade').value;
+      const estado = document.getElementById('estado').value;
       const media = document.getElementById('media').value;
       const tipo = document.getElementById('tipo').value;
 
-      const msg = `Olá! Tenho interesse em energia solar. Aqui estão meus dados:%0A%0A` +
-                  `Nome: ${nome}%0ATelefone: ${tel}%0ACidade: ${cidade}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}`;
+      const msg = `Olá! Tenho interesse em energia solar.%0A%0A` +
+        `Nome: ${nome}%0ACPF: ${cpf}%0ATelefone: ${tel}%0ACEP: ${cep}%0A` +
+        `Endereço: ${rua}, ${bairro}, ${cidade} - ${estado}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}`;
 
-      const numero = "5565996062659"; // Seu número
-      const url = `https://wa.me/${numero}?text=${msg}`;
-      window.open(url, '_blank');
+      const url = `https://wa.me/5565996062659?text=${msg}`;
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 1000);
     }
   </script>
-
 </body>
 </html>
