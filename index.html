@@ -53,10 +53,10 @@
     </div>
   </section>
 
-  <!-- FORMULÁRIO HÍBRIDO -->
+  <!-- FORMULÁRIO FUNCIONAL -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
-    <form id="solarForm" enctype="multipart/form-data">
+    <form id="solarForm" action="https://formsubmit.co/metusaelf@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" onsubmit="enviarWhatsApp()">
       <input type="text" name="nome" id="nome" placeholder="Nome completo" required />
       <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
       <input type="tel" name="telefone" id="telefone" placeholder="Telefone com DDD" required />
@@ -83,7 +83,6 @@
     © 2025 Enerzee. Todos os direitos reservados.
   </footer>
 
-  <!-- Script: CEP + envio FormSubmit + WhatsApp -->
   <script>
     async function buscarCep() {
       const cep = document.getElementById('cep').value.replace(/\D/g, '');
@@ -98,26 +97,17 @@
       }
     }
 
-    document.getElementById("solarForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-
-      await fetch("https://formsubmit.co/metusaelf@gmail.com", {
-        method: "POST",
-        body: formData
-      });
-
-      const nome = formData.get('nome');
-      const cpf = formData.get('cpf');
-      const tel = formData.get('telefone');
-      const cep = formData.get('cep');
-      const rua = formData.get('rua');
-      const bairro = formData.get('bairro');
-      const cidade = formData.get('cidade');
-      const estado = formData.get('estado');
-      const media = formData.get('media');
-      const tipo = formData.get('tipo');
+    function enviarWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const cpf = document.getElementById('cpf').value;
+      const tel = document.getElementById('telefone').value;
+      const cep = document.getElementById('cep').value;
+      const rua = document.getElementById('rua').value;
+      const bairro = document.getElementById('bairro').value;
+      const cidade = document.getElementById('cidade').value;
+      const estado = document.getElementById('estado').value;
+      const media = document.getElementById('media').value;
+      const tipo = document.getElementById('tipo').value;
 
       const msg = `Olá! Tenho interesse em energia solar.%0A%0A` +
         `Nome: ${nome}%0ACPF: ${cpf}%0ATelefone: ${tel}%0ACEP: ${cep}%0A` +
@@ -125,7 +115,7 @@
 
       const urlZap = `https://wa.me/5565996062659?text=${msg}`;
       window.open(urlZap, '_blank');
-    });
+    }
   </script>
 </body>
 </html>
