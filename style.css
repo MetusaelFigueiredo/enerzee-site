@@ -185,3 +185,19 @@ footer {
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
+.video-destaque {
+  padding: 4rem 2rem;
+  background: #f0f2f5;
+  text-align: center;
+}
+.video-destaque h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1e824c;
+}
+.container-video video {
+  max-width: 90%;
+  width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
