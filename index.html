@@ -81,7 +81,7 @@
       <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       <input type="text" name="estado" id="estado" placeholder="Estado" required />
       <input type="text" name="media" id="media" placeholder="Média da conta de luz (R$)" required />
-      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" />
+      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" required />
 <small>Ajuda a oferecer a melhor proposta de economia para seu perfil</small>
       <select name="tipo" id="tipo" required>
         <option value="">Tipo de imóvel</option>
@@ -124,13 +124,14 @@
       const cidade = document.getElementById('cidade').value;
       const estado = document.getElementById('estado').value;
       const media = document.getElementById('media').value;
+      const renda = document.getElementById('renda').value;
       const tipo = document.getElementById('tipo').value;
 
       const msg = `Olá! Tenho interesse em energia solar.%0A%0A` +
         `Nome: ${nome}%0ACPF: ${cpf}%0ATelefone: ${tel}%0ACEP: ${cep}%0A` +
-        `Endereço: ${rua}, ${bairro}, ${cidade} - ${estado}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}`;
+        `Endereço: ${rua}, ${bairro}, ${cidade} - ${estado}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}%0ARenda Mensal: ${renda}`;
 
-      const urlZap = `https://wa.me/5565996062659?text=${msg}`;
+      const urlZap = `https://wa.me/5565984412602?text=${msg}`;
       window.open(urlZap, '_blank');
     }
   </script>
