@@ -47,7 +47,7 @@
     </div>
   </section>
 
-  <!-- VÍDEO INCORPORADO DO YOUTUBE -->
+  <!-- VÍDEO INCORPORADO -->
   <section class="video-destaque">
     <div class="container-video">
       <h2>Veja na prática como funciona</h2>
@@ -61,7 +61,7 @@
     </div>
   </section>
 
-  <!-- FORMULÁRIO FUNCIONAL -->
+  <!-- FORMULÁRIO -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
     <form id="solarForm" action="https://formsubmit.co/metusaelf@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
@@ -94,7 +94,7 @@
     © 2025 Enerzee. Todos os direitos reservados.
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- SCRIPT -->
   <script>
     async function buscarCep() {
       const cep = document.getElementById('cep').value.replace(/\D/g, '');
@@ -109,7 +109,7 @@
       }
     }
 
-    // Envio para WhatsApp após envio para e-mail
+    // Após enviar, abrir WhatsApp
     document.getElementById("solarForm").addEventListener("submit", function () {
       setTimeout(() => {
         const nome = document.getElementById('nome').value;
@@ -130,7 +130,7 @@
 
         const urlZap = `https://wa.me/5565984412602?text=${msg}`;
         window.open(urlZap, '_blank');
-      }, 1000);
+      }, 500);
     });
   </script>
 </body>
