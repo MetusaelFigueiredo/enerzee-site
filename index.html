@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,8 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-
- 
 
   <!-- HERO -->
   <section class="hero-central">
@@ -24,18 +21,18 @@
     <h2>Nossos Planos</h2>
     <div class="plano-container">
       <div class="plano-card destaque-comodato">
-    <h3>⚡ Ezee Solar – Comodato</h3>
-<p class="desconto">💰 Até <strong>40% de economia</strong> na conta de luz</p>
-<ul>
-  <li>✓ Instalação no seu telhado</li>
-  <li>✓ Sem custo inicial</li>
-  <li>✓ Até 6 meses de carência</li>
-  <li>✓ Você se torna dono da usina no final</li>
-  <li>✓ Manutenção completa inclusa</li>
-</ul>
-<p style="font-size: 0.85rem; color: #ffcc00; margin-top: 0.5rem;">
-  * Sujeito à análise de crédito. É necessário não possuir restrições no CPF.
-</p>
+        <h3>⚡ Ezee Solar – Comodato</h3>
+        <p class="desconto">💰 Até <strong>40% de economia</strong> na conta de luz</p>
+        <ul>
+          <li>✓ Instalação no seu telhado</li>
+          <li>✓ Sem custo inicial</li>
+          <li>✓ Até 6 meses de carência</li>
+          <li>✓ Você se torna dono da usina no final</li>
+          <li>✓ Manutenção completa inclusa</li>
+        </ul>
+        <p style="font-size: 0.85rem; color: #ffcc00; margin-top: 0.5rem;">
+          * Sujeito à análise de crédito. É necessário não possuir restrições no CPF.
+        </p>
       </div>
       <div class="plano-card destaque-assinatura">
         <h3>🌞 Ezee Connect – Assinatura</h3>
@@ -49,40 +46,37 @@
       </div>
     </div>
   </section>
-  
-<!-- VÍDEO INCORPORADO DO YOUTUBE -->
-<section class="video-destaque">
-  <div class="container-video">
-    <h2>Veja na prática como funciona</h2>
-    <div class="video-frame">
-      <iframe src="https://www.youtube.com/embed/hePSaQ77fnc"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-      </iframe>
+
+  <!-- VÍDEO INCORPORADO DO YOUTUBE -->
+  <section class="video-destaque">
+    <div class="container-video">
+      <h2>Veja na prática como funciona</h2>
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/hePSaQ77fnc"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
     </div>
-  </div>
-</section>
-
-
-
+  </section>
 
   <!-- FORMULÁRIO FUNCIONAL -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
-    <form id="solarForm" action="https://formsubmit.co/metusaelf@gmail.com" method="POST" enctype="multipart/form-data" target="_blank" onsubmit="enviarWhatsApp()">
+    <form id="solarForm" action="https://formsubmit.co/metusaelf@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
       <input type="text" name="nome" id="nome" placeholder="Nome completo" required />
       <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
       <input type="tel" name="telefone" id="telefone" placeholder="Telefone com DDD" required />
-       <input type="text" name="e-mail" id="e-mail" placeholder="Digite seu E-mail" required />
+      <input type="email" name="e-mail" id="e-mail" placeholder="Digite seu E-mail" required />
       <input type="text" name="cep" id="cep" placeholder="CEP" required onblur="buscarCep()" />
       <input type="text" name="rua" id="rua" placeholder="Rua" required />
       <input type="text" name="bairro" id="bairro" placeholder="Bairro" required />
       <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       <input type="text" name="estado" id="estado" placeholder="Estado" required />
       <input type="text" name="media" id="media" placeholder="Média da conta de luz (R$)" required />
-      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" required />
-<small>Ajuda a oferecer a melhor proposta de economia para seu perfil</small>
+      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" />
+      <small>Ajuda a oferecer a melhor proposta de economia para seu perfil</small>
       <select name="tipo" id="tipo" required>
         <option value="">Tipo de imóvel</option>
         <option value="casa">Casa</option>
@@ -100,6 +94,7 @@
     © 2025 Enerzee. Todos os direitos reservados.
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
     async function buscarCep() {
       const cep = document.getElementById('cep').value.replace(/\D/g, '');
@@ -114,26 +109,29 @@
       }
     }
 
-    function enviarWhatsApp() {
-      const nome = document.getElementById('nome').value;
-      const cpf = document.getElementById('cpf').value;
-      const tel = document.getElementById('telefone').value;
-      const cep = document.getElementById('cep').value;
-      const rua = document.getElementById('rua').value;
-      const bairro = document.getElementById('bairro').value;
-      const cidade = document.getElementById('cidade').value;
-      const estado = document.getElementById('estado').value;
-      const media = document.getElementById('media').value;
-      const renda = document.getElementById('renda').value;
-      const tipo = document.getElementById('tipo').value;
+    // Envio para WhatsApp após envio para e-mail
+    document.getElementById("solarForm").addEventListener("submit", function () {
+      setTimeout(() => {
+        const nome = document.getElementById('nome').value;
+        const cpf = document.getElementById('cpf').value;
+        const tel = document.getElementById('telefone').value;
+        const cep = document.getElementById('cep').value;
+        const rua = document.getElementById('rua').value;
+        const bairro = document.getElementById('bairro').value;
+        const cidade = document.getElementById('cidade').value;
+        const estado = document.getElementById('estado').value;
+        const media = document.getElementById('media').value;
+        const renda = document.getElementById('renda').value;
+        const tipo = document.getElementById('tipo').value;
 
-      const msg = `Olá! Tenho interesse em energia solar.%0A%0A` +
-        `Nome: ${nome}%0ACPF: ${cpf}%0ATelefone: ${tel}%0ACEP: ${cep}%0A` +
-        `Endereço: ${rua}, ${bairro}, ${cidade} - ${estado}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}%0ARenda Mensal: ${renda}`;
+        const msg = `Olá! Tenho interesse em energia solar.%0A%0A` +
+          `Nome: ${nome}%0ACPF: ${cpf}%0ATelefone: ${tel}%0ACEP: ${cep}%0A` +
+          `Endereço: ${rua}, ${bairro}, ${cidade} - ${estado}%0AMédia da conta: R$ ${media}%0ATipo de imóvel: ${tipo}%0ARenda Mensal: ${renda}`;
 
-      const urlZap = `https://wa.me/5565984412602?text=${msg}`;
-      window.open(urlZap, '_blank');
-    }
+        const urlZap = `https://wa.me/5565984412602?text=${msg}`;
+        window.open(urlZap, '_blank');
+      }, 1000);
+    });
   </script>
 </body>
 </html>
