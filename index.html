@@ -52,11 +52,7 @@
     <div class="container-video">
       <h2>Veja na prática como funciona</h2>
       <div class="video-frame">
-        <iframe src="https://www.youtube.com/embed/hePSaQ77fnc"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/hePSaQ77fnc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -64,7 +60,7 @@
   <!-- FORMULÁRIO -->
   <section class="formulario" id="formulario">
     <h2>Solicite sua Simulação</h2>
-    <form id="solarForm" action="https://formsubmit.co/metusaelf@gmail.com" method="POST" enctype="multipart/form-data" target="_blank">
+    <form id="solarForm" action="https://formspree.io/f/mjkwnvkr" method="POST" enctype="multipart/form-data">
       <input type="text" name="nome" id="nome" placeholder="Nome completo" required />
       <input type="text" name="cpf" id="cpf" placeholder="CPF" required />
       <input type="tel" name="telefone" id="telefone" placeholder="Telefone com DDD" required />
@@ -75,8 +71,7 @@
       <input type="text" name="cidade" id="cidade" placeholder="Cidade" required />
       <input type="text" name="estado" id="estado" placeholder="Estado" required />
       <input type="text" name="media" id="media" placeholder="Média da conta de luz (R$)" required />
-      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" />
-      <small>Ajuda a oferecer a melhor proposta de economia para seu perfil</small>
+      <input type="text" name="renda" id="renda" placeholder="Renda mensal aproximada (opcional)" required />
       <select name="tipo" id="tipo" required>
         <option value="">Tipo de imóvel</option>
         <option value="casa">Casa</option>
@@ -86,6 +81,7 @@
       </select>
       <label>📎 Anexe o talão de energia:</label>
       <input type="file" name="talao" id="talao" accept=".pdf,.jpg,.jpeg,.png" required />
+      <input type="hidden" name="_redirect" value="https://www.enerzeeconsultor.com.br/obrigado.html">
       <button type="submit">Enviar e Falar no WhatsApp</button>
     </form>
   </section>
@@ -94,7 +90,6 @@
     © 2025 Enerzee. Todos os direitos reservados.
   </footer>
 
-  <!-- SCRIPT -->
   <script>
     async function buscarCep() {
       const cep = document.getElementById('cep').value.replace(/\D/g, '');
@@ -109,7 +104,6 @@
       }
     }
 
-    // Após enviar, abrir WhatsApp
     document.getElementById("solarForm").addEventListener("submit", function () {
       setTimeout(() => {
         const nome = document.getElementById('nome').value;
